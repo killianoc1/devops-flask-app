@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# Update system
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+# Install python and tools
+sudo apt-get install -y python3 python3-venv python3-pip
+
+# Make project folder
+mkdir -p ~/flask_lab
+cd ~/flask_lab
+
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install Flask
+pip install Flask
+
+# Write hello.py
+cat > hello.py <<'PY'
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return (
+        '<p>Hello, World! I am a Flask app!</p>'
+        '<p><a href="/about">About this app</a></p>'
+    )
+
+@app.route("/about")
+def about():
+    return (
+        '<p>This application is running on the Flask web framework.</p>'
+        '<p>Learn more about Flask here: '
+        '<a href="https://flask.palletsprojects.com/" target="_blank">Flask Documentation</a></p>'
+        '<p><a href="/">Back to Home</a></p>'
+    )
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
+PY
+
+# Run Flask
+flask --app hello run --host=0.0.0.0
+
