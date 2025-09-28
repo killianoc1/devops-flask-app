@@ -18,3 +18,7 @@ def about():
         '<a href="https://flask.palletsprojects.com/" target="_blank">Flask Documentation</a></p>'
         '<p><a href="/">Back to Home</a></p>'
     )
+
+@app.route('/contact')
+def contact():
+    return '<p>Contact: C23412864@mytudublin.ie</p>'
