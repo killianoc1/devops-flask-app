@@ -8,6 +8,8 @@ def home():
     return (
         '<p>Hello, World! I am a Flask app!</p>'
         '<p><a href="/about">About this app</a></p>'
+        '<p>Welcome!</p>'
+
     )
 
 @app.route("/about")
