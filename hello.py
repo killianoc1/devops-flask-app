@@ -19,6 +19,7 @@ def about():
         '<p>Learn more about Flask here: '
         '<a href="https://flask.palletsprojects.com/" target="_blank">Flask Documentation</a></p>'
         '<p><a href="/">Back to Home</a></p>'
+	'<a href="https://www.python.org/"> this leads to the python website </a>'
     )
 
 @app.route('/contact')
